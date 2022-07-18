@@ -42,7 +42,7 @@ We will test this service using the curl utility.  The curl utility is quite use
 
 3. Open another terminal or command window.  Type this curl command to send a request to this service:
 ```
-    curl http://localhost:8080/get/items
+    curl http://localhost:8080/get/itemscd 
 ```
 
 ### GET Service - Search for and Return a ToDo List
@@ -98,14 +98,13 @@ If you want to search for a task name with a space in it, for example "hello wor
 
 #### Implementation
 1. Open the front end component to-do-list/src/component/TodoData.js, on the line after the comment "//begin here" copy/paste/type the following code:
-```
-        const [todos, setTodos] = useState([]);
+```        const [todos, setTodos] = useState([]);
         
         useEffect( () => { 
             async function fetchData() {
                 try {
                     const res = await Axios.get('http://localhost:8080/get/items'); 
-                    setTodos(JSON.stringify(res.data));
+                    setTodos(JSON(res.data));
                     console.log(JSON.stringify(res.data));
                 } catch (err) {
                     console.log(err);
